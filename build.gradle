@@ -17,6 +17,11 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2020.1.2'
+    type 'UI'
+    plugins 'com.jetbrains.php:201.7846.90'
+}
+runIde {
+    ideDirectory 'C:\\Users\\phida\\AppData\\Local\\JetBrains\\Toolbox\\apps\\PhpStorm\\ch-0\\201.7846.90'
 }
 patchPluginXml {
     changeNotes """

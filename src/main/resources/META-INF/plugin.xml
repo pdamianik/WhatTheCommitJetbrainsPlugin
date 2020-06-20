@@ -1,22 +1,36 @@
-<idea-plugin>
-    <id>at.pdamianik.WhatTheCommit</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+<idea-plugin url="https://github.com/pdamianik/WhatTheCommitJetbrainsPlugin">
+    <id>what-the-commit-plugin</id>
+    <name>WhatTheCommit</name>
+    <vendor email="39028343+pdamianik@users.noreply.github.com" url="https://github.com/pdamianik">pdamianik</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    This is a Jetbrains Plugin for a <a href="https://github.com/ngerakines/commitment">commit message generator</a>.
+    This project is licensed under the MIT license (like the original project).
+    You can also find a vscode extension <a href="https://github.com/Gaardsholt/vscode-whatthecommit">here</a>.
+    The original project has a website with randomly chosen messages under <a href="http://whatthecommit.com/">http://whatthecommit.com/</a>.
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
+    <depends>com.jetbrains.php</depends>
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+    <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <!-- Credit for this goes to https://github.com/JanGatting in the file https://github.com/JanGatting/GitCommitMessage/blob/master/META-INF/plugin.xml.
+        The original project (https://github.com/JanGatting/GitCommitMessage) is licensed under the Apache 2.0 license -->
+        <action
+                id="what-the-commit-plugin.FetchCommitMessageAction"
+                class="at.pdamianik.WhatTheCommit.FetchCommitMessageAction"
+                text="Fetch Commit Message"
+                description="Fetches a commit message from http://whatthecommit.com/"
+                icon="AllIcons.Actions.Annotate">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
+        </action>
     </actions>
 </idea-plugin>
